@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react';
+import NavBar from './Components/NavBar'
+import InfoPanel from './Components/InfoPanel';
+import FootNav from './Components/FootNav';
+import BarChart from './Components/BarChart';
+import './App.css'
 
 function App() {
+  const screenConfig= React.useState(0);
+  const search=useState('Enter Country...');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app'>
+      <NavBar search={search} screenConfig={screenConfig} />
+      <InfoPanel currentScreen={screenConfig[0]} search={search} />
+      <FootNav screenConfig={screenConfig} />
+      
     </div>
   );
 }
