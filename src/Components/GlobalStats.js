@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2),
         textAlign: 'center',
         color: theme.palette.text.secondary,
+        overflow: 'auto',
     },
     title: {
         color:'#3f51b5',
