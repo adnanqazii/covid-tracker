@@ -21,16 +21,21 @@ export default function InfoPanel({ currentScreen, search }) {
             let data = await response.json();
             delete data.results[0].source;
             setGlobalData(data.results[0]);
+            
         }
         getData();
     }, []);
+    let data;
         if (currentScreen === 0)
-            return <GlobalStats globalData={globalData} />
+            data= <GlobalStats globalData={globalData} />
         else if (currentScreen === 1)
-            return <AllCountries globalData={countryData} search={search} />
+            data= <AllCountries  globalData={countryData} search={search} />
 
         else
-            return <PieChart globalData={globalData} />
+            data= <PieChart globalData={globalData} />
+            return <div>
+                {data}
+            </div>
 
 
 }

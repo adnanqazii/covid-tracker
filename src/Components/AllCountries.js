@@ -24,7 +24,7 @@ export default function DenseTable({ search }) {
       const response = await fetch("https://api.thevirustracker.com/free-api?countryTotals=ALL");
       let data = await response.json();
       setCountryData(Object.values(Object.values(data.countryitems[0])));
-
+   
     }
     getData();
 
@@ -50,7 +50,7 @@ export default function DenseTable({ search }) {
           {countryData.map((record, ind) => {
             word=new RegExp(search[0],"i")
 
-            if (search[0]==='Enter Country...'||((record.title) &&(record.title.search(word)!==-1))) {
+            if (search[0]==='Enter Country...'||search[0]===''||((record.title) &&(record.title.search(word)!==-1))) {
 
               return (<TableRow key={ind}>
                 <TableCell component="th" scope="row">
