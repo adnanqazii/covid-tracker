@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState,  } from 'react';
 import NavBar from './Components/NavBar'
 import InfoPanel from './Components/InfoPanel';
 import FootNav from './Components/FootNav';
-import BarChart from './Components/BarChart';
+
 import './App.css'
-import SearchButton from './Components/SearchButton';
+
 
 function App() {
   const screenConfig = React.useState(0);
