@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React,{useState, useEffect} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import SearchButton from './SearchButton'
+
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
@@ -63,45 +63,43 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NavBar({ search, screenConfig }) {
-
+export default function NavBar({search,screenConfig}) {
+    
   const classes = useStyles();
- 
-
-  const searchValue=useState('Enter Country...');
- 
-
+    const handleChange=(event,newValue)=> {
+       screenConfig[1](1);
+        search[1](event.target.value);
+       
+    }
+  
+        
+    
+    
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-
+          
           <Typography className={classes.title} variant="h6" noWrap>
-            Covid19-Tracker
+            Covid19-Tracker 
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
             <InputBase
-              value={searchValue[0]}
+              value={search[0]}
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
               }}
-              inputProps={{ 'aria-label': 'search' }} onClick={() => searchValue[1]('')}
-              onChange={(e)=>{
-                searchValue[1](e.target.value)
-              }
-              } />
+              inputProps={{ 'aria-label': 'search' }} onClick={()=>search[1]('')}
+            onChange={handleChange
+            } />
           </div>
-         <SearchButton search={search} searchValue={searchValue} screenConfig={screenConfig} />
         </Toolbar>
-        
       </AppBar>
-      
-
     </div>
   );
-}
-//<input onClick={handleClick}>Search</input>
+        }
+
