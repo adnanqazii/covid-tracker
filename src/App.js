@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import NavBar from './Components/NavBar'
 import InfoPanel from './Components/InfoPanel';
 import FootNav from './Components/FootNav';
-import BarChart from './Components/BarChart';
+
 import './App.css'
 
 function App() {

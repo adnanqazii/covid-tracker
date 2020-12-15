@@ -21,10 +21,10 @@ const Rates = () => {
     const [rates, setRates] = useState([]);
     const currencies=["inr","gbp","usd"];
     let constant = "pkr";
-    let rate;
-    let data;
+    
     useEffect(() => {
-      
+        let rate;
+        let data;
             currencies.forEach(async (currency,index,arr)=> {
                 rate = `${currency}_${constant}`;
                 rate = rate.toUpperCase();
