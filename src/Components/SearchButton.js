@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 export default function SearchButton({search,searchValue,screenConfig}) {
   const classes = useStyles();
   const handleClick = () => {
-    console.log("yes")
+ 
     screenConfig[1](1);
     search[1](searchValue[0]);
     searchValue[1]('Enter Country...');
