@@ -19,12 +19,13 @@ const useStyles = makeStyles({
 
 const Rates = () => {
     const [rates, setRates] = useState([]);
-    const currencies=["inr","gbp","usd"];
-    let constant = "pkr";
+ 
     
     useEffect(() => {
         let rate;
         let data;
+        const currencies=["inr","gbp","usd"];
+        let constant = "pkr";
             currencies.forEach(async (currency,index,arr)=> {
                 rate = `${currency}_${constant}`;
                 rate = rate.toUpperCase();
