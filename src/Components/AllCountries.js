@@ -21,10 +21,11 @@ export default function DenseTable({ search }) {
   const [countryData, setCountryData] = useState([{}]);
   useEffect(() => {
     async function getData() {
-      const response = await fetch("https://api.thevirustracker.com/free-api?countryTotals=ALL");
+      const response = await fetch("https://api.covid19api.com/summary");
       let data = await response.json();
-      setCountryData(Object.values(Object.values(data.countryitems[0])));
-
+      delete data.Global;
+      setCountryData(data.Countries);
+   
     }
     getData();
 
@@ -50,14 +51,14 @@ export default function DenseTable({ search }) {
           {countryData.map((record, ind) => {
             word=new RegExp(search[0],"i")
 
-            if (search[0]==='Enter Country...'||((record.title) &&(record.title.search(word)!==-1))) {
+            if (search[0]==='Enter Country...'||search[0]===''||((record.Country) &&(record.Country.search(word)!==-1))) {
 
               return (<TableRow key={ind}>
                 <TableCell component="th" scope="row">
-                  {record.title}
+                  {record.Country}
                 </TableCell>
-                <TableCell align="right">{record.total_deaths}</TableCell>
-                <TableCell align="right">{record.total_recovered}</TableCell>
+                <TableCell align="right">{record.TotalDeaths}</TableCell>
+                <TableCell align="right">{record.NewRecovered}</TableCell>
 
               </TableRow>)
             }

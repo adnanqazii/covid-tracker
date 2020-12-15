@@ -14,13 +14,13 @@ export default function PieChart({globalData}) {
             data: Object.values(globalData),
             backgroundColor: [
             ...keys.map(key=>{
-                console.log(Math.floor(Math.random()*16777215).toString(16))
+           
                 return "#"+Math.floor(Math.random()*16777215).toString(16)
             })
             ],
             hoverBackgroundColor: [
                 ...keys.map(key=>{
-                    console.log(Math.floor(Math.random()*16777215).toString(16))
+                  
                     return "#"+Math.floor(Math.random()*16777215).toString(16)
                 })
             ]

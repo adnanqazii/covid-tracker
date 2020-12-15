@@ -6,7 +6,7 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
-
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 const useStyles = makeStyles({
     root: {
         position: 'sticky',
@@ -29,7 +29,7 @@ export default function FootNav({screenConfig}) {
             <BottomNavigationAction label="Global Stats" value={0} icon={<RestoreIcon />} />
             <BottomNavigationAction label="Country Stats" value={1} icon={<FavoriteIcon />} />
             <BottomNavigationAction label="Graphs" value={2} icon={<LocationOnIcon />} />
-
+            <BottomNavigationAction label="Rates of Curriences against PKR" value={3} icon={<AttachMoneyIcon />} />
         </BottomNavigation>
     );
 }
