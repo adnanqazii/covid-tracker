@@ -43,6 +43,9 @@ export default function DenseTable({ search }) {
             <TableCell>Country</TableCell>
             <TableCell align="right">Total Deaths</TableCell>
             <TableCell align="right">Total Recovered</TableCell>
+            <TableCell align="right">New Confirmed Cases</TableCell>
+            <TableCell align="right">New Deaths</TableCell>
+            <TableCell align="right">New Recover Cases</TableCell>
           </TableRow>
 
         </TableHead>
@@ -58,8 +61,10 @@ export default function DenseTable({ search }) {
                   {record.Country}
                 </TableCell>
                 <TableCell align="right">{record.TotalDeaths}</TableCell>
+                <TableCell align="right">{record.TotalRecovered}</TableCell>
+                <TableCell align="right">{record.NewConfirmed}</TableCell>
+                <TableCell align="right">{record.NewDeaths}</TableCell>
                 <TableCell align="right">{record.NewRecovered}</TableCell>
-
               </TableRow>)
             }
             else

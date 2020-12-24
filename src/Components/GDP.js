@@ -17,23 +17,29 @@ const useStyles = makeStyles({
     },
 });
 
-const Rates = () => {
-    const [rates, setRates] = useState([]);
+const GDP = () => {
+    const [gdps, setGDPS] = useState([]);
  
     
     useEffect(() => {
-        let rate;
+   
         let data;
-        const currencies=["inr","gbp","usd","CNY","AED","SAR","EUR","TRY","JPY","MYR","BDT",
-    "ETB","BRL","RUB"];
-        let constant = "pkr";
-            currencies.forEach(async (currency,index,arr)=> {
-                rate = `${currency}_${constant}`;
-                rate = rate.toUpperCase();
-                
-                const response = await fetch(`https://free.currconv.com/api/v7/convert?q=${rate}&compact=ultra&apiKey=d4fee7ad69aa51b5555b`);
+        let gdp;
+        let name;
+        let res;
+        const countries=["pk","in","gb","us","CN","ae","SA","de","TR","JP","MY","BD",
+    "ET","BR","RU"];
+       
+            countries.forEach(async (country,index,arr)=> {
+                country=country.toLowerCase();
+                const response = await fetch(`http://api.worldbank.org/v2/country/${country}/indicator/NY.GDP.MKTP.CD?date=2019&format=json`);
                 data = await response.json();
-                setRates(arr=>[...arr, data]);
+                gdp =data[1][0]["value"];
+                name=data[1][0]["country"]["value"];
+                res={
+                    name,gdp
+                }
+                setGDPS(arr=>[...arr, res]);
               
             })
            
@@ -56,24 +62,24 @@ const Rates = () => {
                 <TableHead>
                     <TableRow>
 
-                        <TableCell>Currency</TableCell>
-                        <TableCell align="right">Rate Against PKR</TableCell>
+                        <TableCell>Country</TableCell>
+                        <TableCell align="right">GDP as US dollars</TableCell>
 
                     </TableRow>
 
                 </TableHead>
                 <TableBody>
 
-                    {rates && rates.map((record, ind) => {
+                    {gdps && gdps.map((record, ind) => {
 
 
 
 
                         return (<TableRow key={ind}>
                             <TableCell component="th" scope="row">
-                                {(Object.keys(record)[0]).substring(0, 3)}
+                                {record.name}
                             </TableCell>
-                            <TableCell align="right">{Object.values(record)[0]}</TableCell>
+                            <TableCell align="right">{record.gdp}</TableCell>
 
 
                         </TableRow>)
@@ -87,4 +93,4 @@ const Rates = () => {
         </TableContainer>
     );
 }
-export default Rates;
+export default GDP;

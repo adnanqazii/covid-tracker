@@ -28,7 +28,7 @@ export default function PieChart({globalData}) {
     };
     return (
       <div style={{textAlign:'center'}}>
-        <h2>Covid19 Stats</h2>
+        <h2>Covid19 Global Stats</h2>
         <Pie data={data} />
       </div>
     );
