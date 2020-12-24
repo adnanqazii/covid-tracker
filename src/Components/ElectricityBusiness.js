@@ -16,7 +16,7 @@ const useStyles = makeStyles({
         marginTop: 50,
     },
 });
-const heads = ["Country's Currency Used as Rate", "Annual Rate At Medium firms(150 000 kWh)"];
+const heads = ["Country's Currency Used as Rate", "Rate for Medium firms(150 000 kWh) According to Average Annual Consumption"];
 const data=[
     {
         name:"Bangladesh",
