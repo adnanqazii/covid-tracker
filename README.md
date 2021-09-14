@@ -1,5 +1,7 @@
 # URL:
 http://investkaro.surge.sh/
+# Description:
+This website shows Covid statistics and currency exchange rates againts Pakistani Rupee(PKR) using third-pary REST APIs. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
